@@ -1,7 +1,6 @@
 from functools import reduce
 from winreg import REG_NOTIFY_CHANGE_ATTRIBUTES
 
-
 # Функция получения среднего по всему списку/словарю
 def avg(array):
     if isinstance(array, list):
@@ -16,7 +15,6 @@ def avg(array):
     res = sum / count if count > 0 else 0
     return res
 
-
 # Функция подсчета средней оценки студентов за курс
 def avg_dz(student_list, course):
     print(student_list)
@@ -26,14 +24,12 @@ def avg_dz(student_list, course):
     print(grades)
     return avg(grades)
 
-
 # Функция подсчета средней оценки лекторов за курс
 def avg_lector(lector_list, course):
     grades = []
     for lector in lector_list:
         grades += lector.grades.get(course, [])
     return avg(grades)
-
 
 #################################################
 #################################################
@@ -77,7 +73,6 @@ class Student:
     def __lt__(self, other):
         return avg(self.grades) < avg(other.grades)
 
-
 #################################################
 #################################################
 
@@ -96,7 +91,6 @@ class Mentor:
         res = f'Имя: {self.name}\n'
         res += f'Фамилия: {self.surname}'
         return res
-
 
 #################################################
 #################################################
@@ -152,7 +146,6 @@ class Reviewer(Mentor):
         res = f'I\'m Reviewer\n'
         res += super().__str__()
         return res
-
 
 #################################################
 #################################################
@@ -226,6 +219,5 @@ def __main__():
 
 #################################################
 #################################################
-
 
 __main__()
